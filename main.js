@@ -53,4 +53,7 @@ if (formulario) {
         console.log('Mensajes guardados hasta ahora:', obtenerMensajes());
     });
 }
-const form 
+const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
