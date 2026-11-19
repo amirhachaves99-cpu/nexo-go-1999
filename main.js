@@ -56,4 +56,60 @@ if (formulario) {
 const yearEl = document.getElementById("year");
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
+  const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const messageInput = document.getElementById("message");
+  const formStatus = document.getElementById("form-status");
+
+  const validators = {
+    name: (val) => {
+      if (!val.trim()) return "Ingresá tu nombre.";
+      if (val.trim().length < 2) return "El nombre debe tener al menos 2 caracteres.";
+      return "";
+    },
+    email: (val) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!val.trim()) return "Ingresá tu correo electrónico.";
+      if (!emailRegex.test(val.trim())) return "Ingresá un correo válido.";
+      return "";
+    },
+    message: (val) => {
+      if (!val.trim()) return "Escribí un mensaje.";
+      if (val.trim().length < 10) return "El mensaje debe tener al menos 10 caracteres.";
+      return "";
+    }
+  };
+
+  function validateField(input) {
+    const errorEl = document.getElementById(`${input.id}-error`);
+    const message = validators[input.id] ? validators[input.id](input.value) : "";
+    if (errorEl) errorEl.textContent = message;
+    input.classList.toggle("invalid", Boolean(message));
+    return !message;
+  }
+
+  [nameInput, emailInput, messageInput].forEach((input) => {
+    if (!input) return;
+    input.addEventListener("input", () => validateField(input));
+    input.addEventListener("blur", () => validateField(input));
+  });
+
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fields = [nameInput, emailInput, messageInput].filter(Boolean);
+    const allValid = fields.map(validateField).every(Boolean);
+
+    if (!allValid) {
+      if (formStatus) formStatus.textContent = "Revisá los campos marcados antes de enviar.";
+      return;
+    }
+
+    if (formStatus) formStatus.textContent = "¡Formulario válido! Mensaje listo para enviar.";
+    contactForm.reset();
+    fields.forEach((f) => f.classList.remove("invalid"));
+  });
+}
 }
