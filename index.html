@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoGo - Camina Con Vos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item nav-item--brand"><a class="nav-link nav-link--brand" href="#inicio">NexoGo</a></li>
+                <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
+                <li class="nav-item"><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+                <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="inicio" class="hero">
+            <div class="hero-text">
+                <p class="hero-eyebrow">De caminar Montevideo puerta a puerta, a vender sin complicaciones</p>
+                <h1 class="hero-title">El POS que camina con vos</h1>
+                <p class="hero-subtitle">Pago, inteligencia artificial y control de ventas en un solo dispositivo.</p>
+                <a class="button button--primary" href="#contacto">Sumate a NexoGo</a>
+            </div>
+            <div class="hero-media">
+                <img class="hero-image" src="image/pos negro.jpg" alt="Terminal NexoGo">
+            </div>
+        </section>
+
+        <section id="historia" class="historia">
+            <h2 class="section-title">De la calle a la caja registradora</h2>
+            <p class="section-text">NexoGo nació mirando a los vendedores que recorren Montevideo con el negocio a cuestas: sin mostrador fijo, sin señal de tarjeta, sin datos de sus propias ventas. Armamos un solo dispositivo que cobra, registra y piensa por vos, para que el único límite del negocio sea cuánto quieras caminar.</p>
+        </section>
+
+        <section id="como-funciona" class="como-funciona">
+            <h2 class="section-title">Como funciona</h2>
+            <ol class="step-list">
+                <li class="step-item">
+                    <span class="step-number">1</span>
+                    <div class="step-body">
+                        <h3 class="step-title">Ingresá el monto</h3>
+                        <p class="step-text">Cargás el importe directo en la pantalla del POS, sin planillas ni cuadernos.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">2</span>
+                    <div class="step-body">
+                        <h3 class="step-title">Cobrá con cualquier método</h3>
+                        <p class="step-text">Tarjeta, QR o efectivo: el cliente elige, vos seguís caminando.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">3</span>
+                    <div class="step-body">
+                        <h3 class="step-title">Mirá tus ventas en el momento</h3>
+                        <p class="step-text">Cada cobro se refleja al instante en tu panel, desde el POS o tu celular.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section id="roadmap" class="roadmap">
+            <h2 class="section-title">Roadmap</h2>
+            <ol class="timeline">
+                <li class="timeline-item">
+                    <span class="timeline-marker">1</span>
+                    <h3 class="timeline-title">Desarrollo del sistema de cobro unificado</h3>
+                    <p class="timeline-text">Se crea un software que integra múltiples métodos de pago en una sola terminal.</p>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-marker">2</span>
+                    <h3 class="timeline-title">Implementación del motor de IA para ventas</h3>
+                    <p class="timeline-text">Se desarrolla un sistema de inteligencia artificial que aprende del comportamiento de venta de cada usuario.</p>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-marker">3</span>
+                    <h3 class="timeline-title">Panel de control y analítica en tiempo real</h3>
+                    <p class="timeline-text">Se diseña un dashboard accesible desde el POS o el celular con el estado del negocio al día.</p>
+                </li>
+                <li class="timeline-item">
+                    <span class="timeline-marker">4</span>
+                    <h3 class="timeline-title">Sistema predictivo y optimización del negocio</h3>
+                    <p class="timeline-text">La IA incorpora modelos predictivos que sugieren decisiones de stock, precio y horarios de venta.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section id="contacto" class="contacto">
+            <h2 class="section-title">Vender no debería costar tanto</h2>
+            <p class="section-text">Sumate a NexoGo y llevá el mostrador en el bolsillo.</p>
+
+            <img class="contacto-logo" src="image/nexo_pos_hero_logo.png" alt="NexoGo">
+
+            <div class="pos-images">
+                <img class="pos-image" src="image/nexo_pos_azul.png" alt="Terminal NexoGo color azul">
+                <img class="pos-image" src="image/nexo_pos_naranja.png" alt="Terminal NexoGo color naranja">
+            </div>
+
+            <form class="contact-form" id="contact-form">
+                <div class="form-field">
+                    <label class="form-label" for="nombre">Nombre</label>
+                    <input class="form-input" type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="email">Correo electrónico</label>
+                    <input class="form-input" type="email" id="email" name="email" required>
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="mensaje">Mensaje</label>
+                    <textarea class="form-input form-textarea" id="mensaje" name="mensaje" rows="4"></textarea>
+                </div>
+                <button class="button button--primary" type="submit">Enviar</button>
+            </form>
+            <a class="contact-email" href="mailto:hola@nexogo.com">hola@nexogo.com</a>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-text">NexoGo &mdash; Camina Con Vos</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
