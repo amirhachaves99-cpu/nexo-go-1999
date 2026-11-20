@@ -1,19 +1,32 @@
 :root {
-  --color-fondo: #150F26;
-  --color-fondo-suave: #241a44;
-  --color-primario: #3C2A7A;
-  --color-acento: #F0A93C;
-  --color-texto: #ffffff;
-  --color-texto-suave: #c9c2e0;
-  --radio: 16px;
-  --transicion: 0.25s ease;
+    /* Paleta principal */
+    --color-fondo: #26184e;
+    --color-fondo-suave: #5c5085;
+    --color-primario: #3C2A7A;
+    --color-acento: #f3a22a;
+    --color-acento-oscuro: #d48817;
+    --color-texto: #ffffff;
+    --color-texto-suave: #bcb1de;
+    --color-borde: rgba(255, 255, 255, 0.15);
 
+    /* Alias para compatibilidad con tus clases */
+    --color-bg: var(--color-fondo);
+    --color-bg-alt: var(--color-primario);
+    --color-white: var(--color-primario);
+    --color-ink: var(--color-texto);
+    --color-ink-soft: var(--color-texto-suave);
+    --color-teal: var(--color-acento);
+    --color-accent: var(--color-acento);
+    --color-accent-dark: var(--color-acento-oscuro);
+    --color-line: var(--color-borde);
+
+    /* Tipografía y medidas */
     --font-display: 'Sora', sans-serif;
     --font-body: 'Work Sans', sans-serif;
-
+    --radio: 16px;
     --radius: 10px;
+    --transicion: 0.25s ease;
     --max-width: 1080px;
-
 }
 
 * {
@@ -26,6 +39,23 @@ body {
     color: var(--color-ink-soft);
     font-family: var(--font-body);
     line-height: 1.6;
+}
+
+header {
+    background-color: var(--color-fondo-suave);
+}
+
+button {
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+    border: none;
+    border-radius: var(--radius);
+    transition: var(--transicion);
+}
+
+button:hover {
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
 }
 
 h1, h2, h3 {
@@ -153,7 +183,8 @@ main {
     border: none;
     cursor: pointer;
     background: var(--color-accent);
-    color: var(--color-white);
+    color: var(--color-fondo);
+    transition: var(--transicion);
 }
 
 .button:hover {
@@ -191,7 +222,7 @@ main {
     height: 40px;
     border-radius: 50%;
     background: var(--color-teal);
-    color: var(--color-white);
+    color: var(--color-fondo);
     font-family: var(--font-display);
     font-weight: 700;
     display: flex;
@@ -234,7 +265,7 @@ main {
     height: 24px;
     border-radius: 50%;
     background: var(--color-accent);
-    color: var(--color-white);
+    color: var(--color-fondo);
     font-size: 0.8rem;
     font-weight: 700;
     display: flex;
@@ -282,6 +313,12 @@ main {
     object-fit: contain;
 }
 
+.contact-section {
+    max-width: 540px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
 .contact-form {
     max-width: 440px;
     margin: 0 auto 24px;
@@ -294,34 +331,76 @@ main {
     gap: 18px;
 }
 
-.form-field {
-    display: grid;
+.form-field,
+.form-group {
+    display: flex;
+    flex-direction: column;
     gap: 6px;
+    margin-bottom: 1rem;
 }
 
-.form-label {
+.form-label,
+.form-group label {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--color-ink);
 }
 
-.form-input {
+.form-input,
+.form-group input,
+.form-group textarea {
     font-family: var(--font-body);
     font-size: 1rem;
     padding: 10px 12px;
-    border: 1px solid var(--color-line);
-    border-radius: 6px;
+    border: 1.5px solid var(--color-line);
+    border-radius: 8px;
     background: var(--color-bg);
     color: var(--color-ink);
 }
 
-.form-input:focus {
+.form-input:focus,
+.form-group input:focus,
+.form-group textarea:focus {
     outline: 2px solid var(--color-teal);
     outline-offset: 1px;
 }
 
 .form-textarea {
     resize: vertical;
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid {
+    border-color: #dc2626;
+}
+
+.error-msg {
+    color: #f87171;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    min-height: 1.1rem;
+}
+
+.btn-submit {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-accent);
+    color: var(--color-fondo);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.btn-submit:hover {
+    background-color: var(--color-accent-dark);
+}
+
+.form-status {
+    margin-top: 0.75rem;
+    font-weight: 500;
+    color: #4ade80;
 }
 
 .contact-email {
@@ -346,9 +425,17 @@ main {
 }
 
 @media (max-width: 720px) {
+    .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+    }
+
     .nav-list {
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 1.25rem;
+        padding: 0;
     }
 
     .hero {
@@ -364,56 +451,5 @@ main {
     .pos-image {
         max-width: 90px;
     }
-    .contact-section {
-  max-width: 540px;
-  margin: 2rem auto;
-  padding: 0 1rem;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  margin-bottom: 0.35rem;
-  font-weight: 600;
-}
-
-.form-group input,
-.form-group textarea {
-  padding: 0.65rem 0.75rem;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-.form-group input.invalid,
-.form-group textarea.invalid {
-  border-color: #dc2626;
-}
-
-.error-msg {
-  color: #dc2626;
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
-  min-height: 1.1rem;
-}
-
-.btn-submit {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #111827;
-  color: #ffffff;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.form-status {
-  margin-top: 0.75rem;
-  font-weight: 500;
-}
-}

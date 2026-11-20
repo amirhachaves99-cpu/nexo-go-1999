@@ -7,15 +7,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoGo — El POS que camina con vos</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Sora:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="site-header">
         <nav class="nav">
-            <ul class="nav-list">
-                <li class="nav-item nav-item--brand"><a class="nav-link nav-link--brand" href="#inicio">NexoGo</a></li>
+            <a class="nav-link nav-link--brand" href="#inicio">NexoGo</a>
+
+            <button
+                type="button"
+                class="hamburger"
+                id="hamburger-btn"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="nav-menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-list" id="nav-menu">
                 <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
-                <li class="nav-item"><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+                <li class="nav-item"><a class="nav-link" href="#como-funciona">Cómo funciona</a></li>
                 <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
             </ul>
@@ -32,7 +56,7 @@
                 <a class="button button--primary" href="#contacto">Sumate a NexoGo</a>
             </div>
             <div class="hero-media">
-                <img class="hero-image" src="image/pos-blanco-y-blanco-y-blanco-y-blanco-y-blanco-y-blanco-y-blanco-y-blanco-y-blanco-y-negro-pos-pos-pos-pos-pos-pos-pos-pos-pos.jpg" alt="Terminal NexoGo">
+                <img class="hero-image" src="image/nexo_pos_hero_logo.png" alt="Dispositivo POS NexoGo">
             </div>
         </section>
 
@@ -42,7 +66,7 @@
         </section>
 
         <section id="como-funciona" class="como-funciona">
-            <h2 class="section-title">Como funciona</h2>
+            <h2 class="section-title">Cómo funciona</h2>
             <ol class="step-list">
                 <li class="step-item">
                     <span class="step-number">1</span>
@@ -98,60 +122,43 @@
             <h2 class="section-title">Vender no debería costar tanto</h2>
             <p class="section-text">Sumate a NexoGo y llevá el mostrador en el bolsillo.</p>
 
-            <img class="contacto-logo" src="image/nexo_pos_hero_logo.png" alt="NexoGo">
+            <img class="contacto-logo" src="image/nexo_pos_hero_logo.png" alt="Logo NexoGo">
 
             <div class="pos-images">
-                <img class="pos-image" src="image/nexo_pos_azul.png" alt="Terminal NexoGo color azul">
+                <img class="pos-image" src="image/nexo_pos_verde.png" alt="Terminal NexoGo color verde">
                 <img class="pos-image" src="image/nexo_pos_naranja.png" alt="Terminal NexoGo color naranja">
             </div>
 
-            <form class="contact-form" id="contact-form">
-                <div class="form-field">
-                    <label class="form-label" for="nombre">Nombre</label>
-                    <input class="form-input" type="text" id="nombre" name="nombre" required>
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-group">
+                    <label class="form-label" for="name">Nombre</label>
+                    <input class="form-input" type="text" id="name" name="name" placeholder="Tu nombre" required>
+                    <small class="error-msg" id="name-error" aria-live="polite"></small>
                 </div>
-                <div class="form-field">
+
+                <div class="form-group">
                     <label class="form-label" for="email">Correo electrónico</label>
-                    <input class="form-input" type="email" id="email" name="email" required>
+                    <input class="form-input" type="email" id="email" name="email" placeholder="tu@correo.com" required>
+                    <small class="error-msg" id="email-error" aria-live="polite"></small>
                 </div>
-                <div class="form-field">
-                    <label class="form-label" for="mensaje">Mensaje</label>
-                    <textarea class="form-input form-textarea" id="mensaje" name="mensaje" rows="4"></textarea>
+
+                <div class="form-group">
+                    <label class="form-label" for="message">Mensaje</label>
+                    <textarea class="form-input form-textarea" id="message" name="message" rows="4" placeholder="Contame en qué te puedo ayudar..." required></textarea>
+                    <small class="error-msg" id="message-error" aria-live="polite"></small>
                 </div>
-                <button class="button button--primary" type="submit">Enviar</button>
+
+                <button type="submit" class="button btn-submit">Enviar mensaje</button>
+                <p class="form-status" id="form-status" aria-live="polite"></p>
             </form>
+
             <a class="contact-email" href="mailto:hola@nexogo.com">hola@nexogo.com</a>
         </section>
-<section id="contacto" class="contact-section">
-  <h2>Contacto</h2>
-  <form id="contact-form" novalidate>
-    <div class="form-group">
-      <label for="name">Nombre</label>
-      <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-      <small class="error-msg" id="name-error" aria-live="polite"></small>
-    </div>
 
-    <div class="form-group">
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
-      <small class="error-msg" id="email-error" aria-live="polite"></small>
-    </div>
-
-    <div class="form-group">
-      <label for="message">Mensaje</label>
-      <textarea id="message" name="message" rows="4" placeholder="Contame en qué te puedo ayudar..." required></textarea>
-      <small class="error-msg" id="message-error" aria-live="polite"></small>
-    </div>
-
-    <button type="submit" class="btn-submit">Enviar mensaje</button>
-    <p class="form-status" id="form-status" aria-live="polite"></p>
-  </form>
     </main>
 
     <footer class="site-footer">
-        <footer class="site-footer">
-  <p class="footer-text">&copy; <span id="year"></span> NexoGo &mdash; Camina Con Vos</p>
-</footer>
+        <p class="footer-text">&copy; <span id="year"></span> NexoGo &mdash; Camina Con Vos</p>
     </footer>
 
     <script src="main.js"></script>

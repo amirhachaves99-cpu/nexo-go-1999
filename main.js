@@ -111,5 +111,23 @@ if (contactForm) {
     contactForm.reset();
     fields.forEach((f) => f.classList.remove("invalid"));
   });
+  const hamburgerBtn = document.getElementById("hamburger-btn");
+const navMenu = document.getElementById("nav-menu");
+
+if (hamburgerBtn && navMenu) {
+  hamburgerBtn.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("open");
+    hamburgerBtn.classList.toggle("active", isOpen);
+    hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navMenu.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("open");
+      hamburgerBtn.classList.remove("active");
+      hamburgerBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+}
 }
 }
